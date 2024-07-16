@@ -1,0 +1,17 @@
+//https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+// here it is similar to kadhaneys algorith we are keeping track of min value to buy stock and max_profit to by taking max(btw max_profit till then && cost)
+// cost is calculated by present day element and min (to sell from present day and by at minimum)
+// everytime we update min if there is still a min value on which the stock can be bought we take min(btw min, and present elemnet a[i])
+class Solution {
+    public int maxProfit(int[] a) {
+    int max_profit=0;
+    int min =a[0];
+    int n=a.length;
+    for(int i=1;i<n;i++){
+        int cost=a[i]-min;
+        max_profit=Math.max(max_profit,cost);
+        min=Math.min(min,a[i]);
+    } 
+    return max_profit; 
+    }
+}
