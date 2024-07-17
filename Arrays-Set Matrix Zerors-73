@@ -1,5 +1,6 @@
 //this a arrays question at medium level
 //  https://leetcode.com/problems/set-matrix-zeroes/
+// not optimal but best solution
 
 class Solution {
     public void setZeroes(int[][] a) {
