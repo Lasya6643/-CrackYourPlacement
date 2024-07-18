@@ -1,0 +1,39 @@
+https://leetcode.com/problems/find-all-duplicates-in-an-array/
+
+//Method-1
+//TC-O(n)
+// but spaceC=O(n)  but wanted in constant space 
+class Solution {
+    public List<Integer> findDuplicates(int[] a) {
+        HashSet<Integer> set=new HashSet<>();
+        List<Integer> list=new ArrayList<>();
+        for(int i=0;i<a.length;i++){
+            if(set.contains(a[i])){
+                list.add(a[i]);
+            }
+            else{
+                set.add(a[i]);
+            }
+        }
+        return list;
+    }
+}
+
+//Method-2
+//tc:o(n) sc=constant
+// this uses space as constant
+class Solution {
+    public List<Integer> findDuplicates(int[] a) {
+       List<Integer> result=new ArrayList<>();
+       for(int i=0;i<a.length;i++){
+        int index=Math.abs(a[i])-1;
+        if(a[index]<0){
+            result.add(index+1);
+        }
+        else{
+            a[index]=a[index] * -1;
+        }
+       }
+       return result; 
+    }
+}
