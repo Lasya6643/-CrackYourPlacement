@@ -1,0 +1,29 @@
+https://leetcode.com/problems/sort-colors/
+
+class Solution {
+    public void sortColors(int[] a) {
+        int n=a.length;
+        int l=0;    //lowpoinyer
+        int m=0;   //mid
+        int h=n-1;  //high
+        while(m<=h){
+            if(a[m]==0){
+                int temp=a[l];
+                a[l]=a[m];
+                a[m]=temp;
+                l++;
+                m++;
+            }
+            else if(a[m]==2){
+                int temp=a[h];
+                a[h]=a[m];
+                a[m]=temp;
+                 m++;
+                 h--;
+            }
+            else{
+                m++;
+            }
+        }
+    }
+}
