@@ -1,0 +1,24 @@
+https://leetcode.com/problems/subarray-sums-divisible-by-k/
+
+class Solution {
+    public int subarraysDivByK(int[] a, int k) {
+      Map <Integer,Integer>  map=new HashMap<>();  
+      //here value is remainder and key is countof occurance of thatremainder 
+      map.put(0,1);  
+      int n=a.length;
+      int runsum=0;  // sum of elements
+      int count=0;
+       for(int i=0;i<n;i++){
+        runsum=runsum+a[i];
+        int rem=runsum%k;  // rem is remainder of runnning sum
+        if(rem<0){
+            rem=rem+k;
+        }
+        if(map.containsKey((rem))){
+            count=count+map.get((rem));
+        }
+        map.put(rem,map.getOrDefault(rem,0)+1);
+         }
+         return count;
+    }
+}
